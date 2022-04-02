@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- STARTER KIT -->
   <head>
     <meta charset="UTF-8" />
     <meta
@@ -12,10 +13,26 @@
     />
     <title>Document</title>
     <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 1. START Styling Cookie | cookieconsent.css -->
+    <link
       rel="stylesheet"
       type="text/css"
-      href="/cookieconsent.css"
+      href="./cookie/cookieconsent.css"
     />
+    <!-- 1. END Styling Cookie | cookieconsent.css -->
   </head>
   <body>
     <div>
@@ -29,53 +46,91 @@
       id aliqua ut culpa minim.
     </div>
     <div>
-      Dolor nostrud Lorem laborum Lorem nulla
-      proident culpa anim ullamco eiusmod velit
-      eiusmod nulla velit. Qui ullamco minim
-      incididunt nostrud deserunt et magna duis
-      aute proident amet velit. Qui dolore duis
-      incididunt nisi sunt do velit tempor et
-      tempor. Lorem Lorem ullamco laboris dolore
-      id aliqua ut culpa minim.
-    </div>
-    <div>
-      Dolor nostrud Lorem laborum Lorem nulla
-      proident culpa anim ullamco eiusmod velit
-      eiusmod nulla velit. Qui ullamco minim
-      incididunt nostrud deserunt et magna duis
-      aute proident amet velit. Qui dolore duis
-      incididunt nisi sunt do velit tempor et
-      tempor. Lorem Lorem ullamco laboris dolore
-      id aliqua ut culpa minim.
+      Excepteur fugiat quis culpa aliqua ad
+      incididunt proident cillum do. Labore dolore
+      cupidatat labore ut. Cupidatat amet laboris
+      incididunt est tempor fugiat reprehenderit
+      amet eiusmod fugiat eu. Ad proident nostrud
+      adipisicing eiusmod pariatur laboris
+      cupidatat cupidatat excepteur. Eu ut commodo
+      cupidatat occaecat irure dolore ut
+      adipisicing fugiat cillum irure. Ad Lorem
+      nulla pariatur tempor sit magna sunt ad
+      ipsum.
     </div>
 
-    <script
-      defer
-      src="/cookieconsent.js"
-    ></script>
-
-    <script
-      defer
-      src="/cookieconsent-init.js"
-    ></script>
-
-    <script
-      type="text/plain"
-      data-cookiecategory="necessary"
+    <!-- 2. START Reconsent Button -->
+    <button
+      data-cc="c-settings"
+      class="cc-link"
+      style="
+        position: fixed;
+        left: 8px;
+        /* right: 16px; */
+        bottom: 16px;
+        border-radius: 999px;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        width: 40px;
+        height: 40px;
+        box-shadow: rgb(204 204 204 / 50%) 0px 2px
+          10px 0px;
+        border: 1px solid rgb(232, 232, 232);
+        background-color: rgb(255, 255, 255);
+      "
     >
-      console.log('"neccessary" category accepted');
-    </script>
+      <img
+        src="./cookie/cookie-svgrepo-com.svg"
+      />
+    </button>
+    <!-- 2. END Reconsent Button -->
+
+    <!-- 3. START CookieConsent | cookieconsent.js -->
+    <script
+      defer
+      src="./cookie/cookieconsent.js"
+    ></script>
+    <!-- 3. END CookieConsent | cookieconsent.js -->
+
+    <!-- 4. START CookieConsent Customizatio  | consent-init.js -->
+    <script
+      defer
+      src="./cookie/consent-init.js"
+    ></script>
+    <!-- 4. END CookieConsent Customizatio  | consent-init.js -->
+
+    <!-- 5. START Script Blocking Analytics -->
+    <script
+      async
+      type="text/plain"
+      data-cookiecategory="analytics"
+      src="https://www.googletagmanager.com/gtag/js?id=G-0JGXXQLT3H"
+    ></script>
+
     <script
       type="text/plain"
       data-cookiecategory="analytics"
     >
       console.log('"analytics" category accepted');
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-0JGXXQLT3H');
     </script>
+    <!-- 5. END Script Blocking Analytics -->
+
+    <!-- 6. START Script Blocking Marketing -->
     <script
       type="text/plain"
-      data-cookiecategory="targeting"
+      data-cookiecategory="marketing"
     >
       console.log('"ads" category accepted');
     </script>
+    <!-- 6. START Script Blocking Marketing -->
   </body>
 </html>
