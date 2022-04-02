@@ -5,7 +5,7 @@ var cc = initCookieConsent();
 // example please see: https://orestbida.com/demo-projects/cookieconsent/
 cc.run({
   current_lang: 'th',
-  autoclear_cookies: true, // default: false
+  // autoclear_cookies: true, // default: false
   page_scripts: true, // default: false
 
   // mode: 'opt-in'                          // default: 'opt-in'; value: 'opt-in' or 'opt-out'
