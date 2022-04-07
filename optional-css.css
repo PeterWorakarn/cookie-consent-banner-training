@@ -5,12 +5,33 @@ body {
   font-family: 'Nunito';
 }
 
-img.img-content {
+.cover-content {
   width: 100%;
-  height: auto;
-  max-height: 40vh;
+  height: 50vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url('./background-image.jpg');
+  background-position: center;
+  background-size: cover;
 }
-section.content {
-  max-width: 875px;
+.cover-header {
   margin: 0 auto;
+  color: white;
+  padding: 0 18px;
+}
+section.main-content {
+  max-width: 785px;
+  margin: 0 auto;
+  padding: 0 18px;
+}
+section.main-content .header-content {
+  padding: 10px 0;
+  margin-bottom: 0;
+}
+section.main-content .text-content {
+  margin-top: 0;
 }
