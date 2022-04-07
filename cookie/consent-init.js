@@ -26,7 +26,7 @@ cc.run({
 
   gui_options: {
     consent_modal: {
-      layout: 'bar', // box/cloud/bar
+      layout: 'box', // box/cloud/bar
       position: 'bottom center', // bottom/middle/top + left/right/center
       transition: 'slide', // zoom/slide
       swap_buttons: false, // enable to invert buttons
