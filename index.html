@@ -77,5 +77,55 @@
         id aliqua ut culpa minim.
       </p>
     </section>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      // ฟังก์ชันของ Consent Mode ของ gtag สำหรับการปิดการใช้งาน Cookie ในตอนเริ่มต้น
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        wait_for_update: 2000,
+      });
+
+      // การตั้งค่าสำหรับการแสดงผล Cookies Popup
+      window.easycookies = {
+        code: 'XJCBF7TBMV1I',
+        callback: (cookies) => {
+          /*
+      Callback ฟังก์ชันจะถูกเรียกใช้เมื่อผู้ใช้งานยอมรับหรือปรับเปลี่ยนความยินยอม โดยจะรับ parameter ที่เป็น object ซึ่งประกอบไปด้วยคีย์ต่างๆดังนี้
+      - performance (boolean) -> บ่งบอกว่าผู้ใช้งานได้ยอมรับหรือไม่ยอมรับคุ้กกี้ประเภท Analytics
+      - functionality (boolean) -> บ่งบอกว่าผู้ใช้งานได้ยอมรับหรือไม่ยอมรับคุ้กกี้ประเภท Preference
+      - advertising (boolean) -> บ่งบอกว่าผู้ใช้งานได้ยอมรับหรือไม่ยอมรับคุ้กกี้ประเภท Advertising
+      */
+          // เรียกใช้งานฟังก์ชัน gtag เมื่อผู้ใช้งานยอมรับหรือปรับเปลี่ยนความยินยอม
+          gtag('consent', 'update', {
+            analytics_storage: cookies.performance
+              ? 'granted'
+              : 'denied',
+          });
+        },
+      };
+    </script>
+    <!-- ดาวน์โหลดและตั้งค่า Google Tag Manager สำหรับ Google Analytic -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0JGXXQLT3H"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-0JGXXQLT3H');
+    </script>
+    <!-- ดาวน์โหลดสคริปต์ EasyCookies -->
+    <script
+      async
+      src="https://easypdpa.com/api/v2/scripts/easycookies/XJCBF7TBMV1I/easycookies.js"
+    ></script>
   </body>
 </html>
