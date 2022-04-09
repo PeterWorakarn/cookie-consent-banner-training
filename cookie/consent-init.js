@@ -2,9 +2,8 @@
 var cc = initCookieConsent();
 
 // run plugin with your configuration
-// example please see: https://orestbida.com/demo-projects/cookieconsent/
 cc.run({
-  current_lang: 'th',
+  current_lang: 'en',
   autoclear_cookies: true, // default: false
   page_scripts: true, // default: false
 
@@ -24,47 +23,15 @@ cc.run({
   // use_rfc_cookie: false,                  // default: false
   // revision: 0,                            // default: 0
 
-  gui_options: {
-    consent_modal: {
-      layout: 'box', // box/cloud/bar
-      position: 'bottom center', // bottom/middle/top + left/right/center
-      transition: 'slide', // zoom/slide
-      swap_buttons: false, // enable to invert buttons
-    },
-    settings_modal: {
-      layout: 'box', // box/bar
-      position: 'left', // left/right
-      transition: 'slide', // zoom/slide
-    },
-  },
-
   onFirstAction: function (
     user_preferences,
     cookie,
   ) {
     // callback triggered only once
-    typeof window.setJsonCookie === 'function' &&
-      window.setJsonCookie();
   },
 
   onAccept: function (cookie) {
-    // START OnAccept
-    if (!cc.allowedCategory('analytics')) {
-      document.cookie = `_ga_0JGXXQLT3H=; path=/; domain=${
-        location.hostname
-      }; expires=' + ${new Date(
-        0,
-      ).toUTCString()}`;
-      document.cookie = `_ga=; path=/; domain=${
-        location.hostname
-      }; expires=' + ${new Date(
-        0,
-      ).toUTCString()}`;
-    }
-    // END OnAccept
-
-    typeof window.setJsonCookie === 'function' &&
-      window.setJsonCookie();
+    // ...
   },
 
   onChange: function (
@@ -72,39 +39,29 @@ cc.run({
     changed_preferences,
   ) {
     // ...
-
-    // START OnChange
-    if (!cc.allowedCategory('analytics')) {
-      sessionStorage.removeItem('_ga_0JGXXQLT3H');
-      sessionStorage.removeItem('^_ga');
-    }
-    // END OnChange
-
-    typeof window.setJsonCookie === 'function' &&
-      window.setJsonCookie();
   },
 
   languages: {
-    th: {
+    en: {
       consent_modal: {
-        title: 'เว็บไซต์นี้ใช้ Cookie',
+        title: 'We use cookies!',
         description:
-          'เราใช้คุกกี้เพื่อเพิ่มประสิทธิภาพ และประสบการณ์ที่ดีในการใช้งานเว็บไซต์ คุณสามารถเลือกตั้งค่าความยินยอมการใช้คุกกี้ได้ โดยคลิก "การตั้งค่าคุกกี้"  <button type="button" data-cc="c-settings" class="cc-link">การตั้งค่าคุกกี้</button>',
+          'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
         primary_btn: {
-          text: 'ยอมรับทั้งหมด',
+          text: 'Accept all',
           role: 'accept_all', // 'accept_selected' or 'accept_all'
         },
         secondary_btn: {
-          text: 'ปฏิเสธทั้งหมด',
+          text: 'Reject all',
           role: 'accept_necessary', // 'settings' or 'accept_necessary'
         },
       },
       settings_modal: {
-        title: 'การตั้งค่าความเป็นส่วนตัว',
-        save_settings_btn: 'ยืนยันตัวเลือกของฉัน',
-        accept_all_btn: 'ยอมรับทั้งหมด',
-        reject_all_btn: 'ปฏิเสธทั้งหมด',
-        close_btn_label: 'ปิด',
+        title: 'Cookie preferences',
+        save_settings_btn: 'Save settings',
+        accept_all_btn: 'Accept all',
+        reject_all_btn: 'Reject all',
+        close_btn_label: 'Close',
         cookie_table_headers: [
           { col1: 'Name' },
           { col2: 'Domain' },
@@ -113,34 +70,25 @@ cc.run({
         ],
         blocks: [
           {
-            title: 'คุ้กกี้ที่ใช้ในเว็บไซต์ 📢',
+            title: 'Cookie usage 📢',
             description:
-              'เว็บไซต์นี้มีการใช้คุกกี้เพื่อการปรับปรุงการใช้บริการออนไลน์ของท่าน โดยเราจะใช้คุกกี้เมื่อท่านเข้ามาหน้าเว็บไซต์. คุณสามารถอ่านรายละเอียดเพิ่มเติมได้ที่ <a href="https://google.com" target="_blank" rel=”noopener noreferrer” class="cc-link">Privacy Policy</a>.',
+              'I use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want. For more details relative to cookies and other sensitive data, please read the full <a href="#" class="cc-link">privacy policy</a>.',
           },
           {
-            title: 'คุกกี้พื้นฐานที่จำเป็น',
+            title: 'Strictly necessary cookies',
             description:
-              'คุกกี้พื้นฐานที่จำเป็น เพื่อช่วยให้การทำงานหลักของเว็บไซต์ใช้งานได้ รวมถึงการเข้าถึงพื้นที่ที่ปลอดภัยต่าง ๆ ของเว็บไซต์ หากไม่มีคุกกี้นี้เว็บไซต์จะไม่สามารถทำงานได้อย่างเหมาะสม และจะใช้งานได้โดยการตั้งค่าเริ่มต้น โดยไม่สามารถปิดการใช้งานได้',
+              'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
             toggle: {
               value: 'necessary',
               enabled: true,
               readonly: true, // cookie categories with readonly=true are all treated as "necessary cookies"
             },
-            cookie_table: [
-              // list of all expected cookies
-              {
-                col1: '^_ga', // match all cookies starting with "_ga"
-                col2: 'google.com',
-                col3: '2 years',
-                col4: `description ...`,
-                is_regex: true,
-              },
-            ],
           },
           {
-            title: 'คุกกี้ในส่วนวิเคราะห์',
+            title:
+              'Performance and Analytics cookies',
             description:
-              'คุกกี้ในส่วนวิเคราะห์ จะช่วยให้เว็บไซต์เข้าใจรูปแบบการใช้งานของผู้เข้าชมและจะช่วยปรับปรุงประสบการณ์การใช้งาน โดยการเก็บรวบรวมข้อมูลและรายงานผลการใช้งานของผู้ใช้งาน ',
+              'These cookies allow the website to remember the choices you have made in the past',
             toggle: {
               value: 'analytics', // your cookie category
               enabled: false,
@@ -149,39 +97,35 @@ cc.run({
             cookie_table: [
               // list of all expected cookies
               {
-                col1: '_ga', // match all cookies starting with "_ga"
-                col2: '.thematter.co',
+                col1: '^_ga', // match all cookies starting with "_ga"
+                col2: 'google.com',
                 col3: '2 years',
-                col4: `The _ga cookie, installed by Google Analytics, calculates visitor, session and campaign data and also keeps track of site usage for the site's analytics report. The cookie stores information anonymously and assigns a randomly generated number to recognize unique visitors.`,
+                col4: 'description ...',
                 is_regex: true,
               },
               {
                 col1: '_gid',
-                col2: '.thematter.co',
+                col2: 'google.com',
                 col3: '1 day',
-                col4: `Installed by Google Analytics, _gid cookie stores information on how visitors use a website, while also creating an analytics report of the website's performance. Some of the data that are collected include the number of visitors, their source, and the pages they visit anonymously.`,
-              },
-              {
-                col1: '_ga_0JGXXQLT3H',
-                col2: '.thematter.co',
-                col3: '1 minute',
-                col4: `A variation of the _gat cookie set by Google Analytics and Google Tag Manager to allow website owners to track visitor behaviour and measure site performance. The pattern element in the name contains the unique identity number of the account or website it relates to.`,
+                col4: 'description ...',
               },
             ],
           },
           {
-            title: 'คุกกี้ในส่วนการตลาด',
+            title:
+              'Advertisement and Targeting cookies',
             description:
-              'คุกกี้ในส่วนการตลาด ใช้เพื่อติดตามพฤติกรรมผู้เข้าชมเว็บไซต์เพื่อแสดงโฆษณาที่เหมาะสมสำหรับผู้ใช้งานแต่ละรายและเพื่อเพิ่มประสิทธิผลการโฆษณาสำหรับผู้เผยแพร่และผู้โฆษณาสำหรับบุคคลที่สาม',
+              'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
             toggle: {
-              value: 'marketing',
+              value: 'targeting',
               enabled: false,
               readonly: false,
             },
           },
           {
-            title: 'รายละเอียดเพิ่มเติม',
-            description: `หากท่านมีปัญหาข้อสงสัยโปรดติดต่อเราที่ <a target="_blank" rel=”noopener noreferrer” class="cc-link" href="https://google.com">ติดต่อเรา</a>.`,
+            title: 'More information',
+            description:
+              'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
           },
         ],
       },

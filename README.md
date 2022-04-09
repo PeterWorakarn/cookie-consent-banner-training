@@ -3,8 +3,10 @@
 Cookie Consent Training based on
 [Cookie Consent](https://github.com/orestbida/cookieconsent)
 
+GTAG version: https://github.com/orestbida/cookieconsent/tree/master/demo/demo_gtm
+GTM version: https://github.com/orestbida/cookieconsent/tree/master/demo/demo_basic
+
 ## **Guide to use in Wordpress**
----
 
 [Demo Wordpress site](https://cookies-demo.datayolk.net/)
 
