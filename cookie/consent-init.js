@@ -23,6 +23,20 @@ cc.run({
   // use_rfc_cookie: false,                  // default: false
   // revision: 0,                            // default: 0
 
+  gui_options: {
+    consent_modal: {
+      layout: 'box', // box/cloud/bar
+      position: 'bottom center', // bottom/middle/top + left/right/center
+      transition: 'slide', // zoom/slide
+      swap_buttons: false, // enable to invert buttons
+    },
+    settings_modal: {
+      layout: 'box', // box/bar
+      position: 'left', // left/right
+      transition: 'slide', // zoom/slide
+    },
+  },
+
   onFirstAction: function (
     user_preferences,
     cookie,
