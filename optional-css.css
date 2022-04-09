@@ -5,6 +5,10 @@ body {
   font-family: 'Nunito';
 }
 
+.cc_div {
+  font-family: 'Mitr' !important;
+}
+
 .cover-content {
   width: 100%;
   height: 50vh;
