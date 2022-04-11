@@ -25,7 +25,7 @@ cc.run({
 
   gui_options: {
     consent_modal: {
-      layout: 'box', // box/cloud/bar
+      layout: 'cloud', // box/cloud/bar
       position: 'bottom center', // bottom/middle/top + left/right/center
       transition: 'slide', // zoom/slide
       swap_buttons: false, // enable to invert buttons
@@ -97,6 +97,22 @@ cc.run({
               enabled: true,
               readonly: true, // cookie categories with readonly=true are all treated as "necessary cookies"
             },
+            cookie_table: [
+              // list of all expected cookies
+              {
+                col1: '^_ga', // match all cookies starting with "_ga"
+                col2: 'google.com',
+                col3: '2 years',
+                col4: 'description ...',
+                is_regex: true,
+              },
+              {
+                col1: '_gid',
+                col2: 'google.com',
+                col3: '1 day',
+                col4: 'description ...',
+              },
+            ],
           },
           {
             title:
@@ -131,10 +147,26 @@ cc.run({
             description:
               'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
             toggle: {
-              value: 'targeting',
+              value: 'marketing',
               enabled: false,
               readonly: false,
             },
+            cookie_table: [
+              // list of all expected cookies
+              {
+                col1: '^_ga', // match all cookies starting with "_ga"
+                col2: 'google.com',
+                col3: '2 years',
+                col4: 'description ...',
+                is_regex: true,
+              },
+              {
+                col1: '_gid',
+                col2: 'google.com',
+                col3: '1 day',
+                col4: 'description ...',
+              },
+            ],
           },
           {
             title: 'More information',
