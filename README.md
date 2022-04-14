@@ -44,6 +44,7 @@ Cookie Consent Training based on
 
     <details>
     <summary>Scripts in Footer</summary>
+  
   <!-- 2. START Reconsent Button -->
       <button
         data-cc="c-settings"
