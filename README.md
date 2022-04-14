@@ -12,6 +12,7 @@ Cookie Consent Training based on
   [Insert Headers and Footers](https://wordpress.org/plugins/insert-headers-and-footers/)
 - Use the below code in HTML tag <details>
   <summary>Scripts in Header</summary>
+  
   <!-- 1. START Styling Cookie | cookieconsent.css -->
   <link
             rel="stylesheet"
