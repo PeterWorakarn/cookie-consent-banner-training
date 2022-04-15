@@ -3,9 +3,6 @@
 Cookie Consent Training based on
 [Cookie Consent](https://github.com/orestbida/cookieconsent)
 
-GTAG version: https://github.com/orestbida/cookieconsent/tree/master/demo/demo_gtm
-GTM version: https://github.com/orestbida/cookieconsent/tree/master/demo/demo_basic
-
 ## **Guide to use in Wordpress**
 
 [Demo Wordpress site](https://cookies-demo.datayolk.net/)
@@ -15,13 +12,11 @@ GTM version: https://github.com/orestbida/cookieconsent/tree/master/demo/demo_ba
 - Use the below code in HTML tag <details>
   <summary>Scripts in Header</summary>
   
-  <!-- 1. START Styling Cookie | cookieconsent.css -->
-  <link
+          <link
             rel="stylesheet"
             type="text/css"
             href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.0/dist/cookieconsent.css"
           />
-  <!-- 1. END Styling Cookie | cookieconsent.css -->
 
           <link
             rel="preconnect"
