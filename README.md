@@ -13,13 +13,11 @@ Cookie Consent Training based on
 - Use the below code in HTML tag <details>
   <summary>Scripts in Header</summary>
   
-  <!-- 1. START Styling Cookie | cookieconsent.css -->
-  <link
+          <link
             rel="stylesheet"
             type="text/css"
             href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.0/dist/cookieconsent.css"
           />
-  <!-- 1. END Styling Cookie | cookieconsent.css -->
 
           <link
             rel="preconnect"
