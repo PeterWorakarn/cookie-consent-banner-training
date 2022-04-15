@@ -14,6 +14,7 @@ GTM version: https://github.com/orestbida/cookieconsent/tree/master/demo/demo_ba
   [Insert Headers and Footers](https://wordpress.org/plugins/insert-headers-and-footers/)
 - Use the below code in HTML tag <details>
   <summary>Scripts in Header</summary>
+  
   <!-- 1. START Styling Cookie | cookieconsent.css -->
   <link
             rel="stylesheet"
@@ -46,6 +47,7 @@ GTM version: https://github.com/orestbida/cookieconsent/tree/master/demo/demo_ba
 
     <details>
     <summary>Scripts in Footer</summary>
+  
   <!-- 2. START Reconsent Button -->
       <button
         data-cc="c-settings"
