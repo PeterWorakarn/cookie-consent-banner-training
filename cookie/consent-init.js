@@ -49,18 +49,7 @@ cc.run({
 
   onAccept: function (cookie) {
     // START OnAccept
-    if (!cc.allowedCategory('analytics')) {
-      document.cookie = `_ga_0JGXXQLT3H=; path=/; domain=${
-        location.hostname
-      }; expires=' + ${new Date(
-        0,
-      ).toUTCString()}`;
-      document.cookie = `_ga=; path=/; domain=${
-        location.hostname
-      }; expires=' + ${new Date(
-        0,
-      ).toUTCString()}`;
-    }
+
     // END OnAccept
 
     typeof window.setJsonCookie === 'function' &&
@@ -74,10 +63,7 @@ cc.run({
     // ...
 
     // START OnChange
-    if (!cc.allowedCategory('analytics')) {
-      sessionStorage.removeItem('_ga_0JGXXQLT3H');
-      sessionStorage.removeItem('^_ga');
-    }
+
     // END OnChange
 
     typeof window.setJsonCookie === 'function' &&
