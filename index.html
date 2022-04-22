@@ -117,18 +117,29 @@
     <!-- 4. END CookieConsent Customization  | consent-init.js -->
 
     <!-- 5. START Script Blocking Analytics -->
+    <!-- 5. END Script Blocking Analytics -->
+
+    <script>
+      // Define dataLayer and the gtag function.
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      // Default ad_storage to 'denied' as a placeholder
+      // Determine actual values based on your own requirements
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        anonymize_ip: true, // open by default when use with gtag.js
+      });
+    </script>
     <script
       async
-      type="text/plain"
-      data-cookiecategory="analytics"
       src="https://www.googletagmanager.com/gtag/js?id=G-0JGXXQLT3H"
     ></script>
 
-    <script
-      type="text/plain"
-      data-cookiecategory="analytics"
-    >
-      console.log('"analytics" category accepted');
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -137,15 +148,26 @@
 
       gtag('config', 'G-0JGXXQLT3H');
     </script>
-    <!-- 5. END Script Blocking Analytics -->
 
-    <!-- 6. START Script Blocking Marketing -->
+    <!-- 6. START Script Blocking Analytics -->
+    <script
+      type="text/plain"
+      data-cookiecategory="analytics"
+    >
+      console.log('"analytics" category accepted');
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted'
+      });
+    </script>
+    <!-- 6. END Script Blocking Analytics -->
+
+    <!-- 7. START Script Blocking Marketing -->
     <script
       type="text/plain"
       data-cookiecategory="marketing"
     >
       console.log('"ads" category accepted');
     </script>
-    <!-- 6. END Script Blocking Marketing -->
+    <!-- 7. END Script Blocking Marketing -->
   </body>
 </html>
