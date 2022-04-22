@@ -49,7 +49,18 @@ cc.run({
 
   onAccept: function (cookie) {
     // START OnAccept
-
+    if (!cc.allowedCategory('analytics')) {
+      document.cookie = `_ga_0JGXXQLT3H=; path=/; domain=${
+        location.hostname
+      }; expires=' + ${new Date(
+        0,
+      ).toUTCString()}`;
+      document.cookie = `_ga=; path=/; domain=${
+        location.hostname
+      }; expires=' + ${new Date(
+        0,
+      ).toUTCString()}`;
+    }
     // END OnAccept
 
     typeof window.setJsonCookie === 'function' &&
@@ -63,7 +74,10 @@ cc.run({
     // ...
 
     // START OnChange
-
+    if (!cc.allowedCategory('analytics')) {
+      sessionStorage.removeItem('_ga_0JGXXQLT3H');
+      sessionStorage.removeItem('_ga');
+    }
     // END OnChange
 
     typeof window.setJsonCookie === 'function' &&
@@ -112,16 +126,6 @@ cc.run({
               enabled: true,
               readonly: true, // cookie categories with readonly=true are all treated as "necessary cookies"
             },
-            cookie_table: [
-              // list of all expected cookies
-              {
-                col1: '^_ga', // match all cookies starting with "_ga"
-                col2: 'google.com',
-                col3: '2 years',
-                col4: `description ...`,
-                is_regex: true,
-              },
-            ],
           },
           {
             title: 'คุกกี้ในส่วนวิเคราะห์',
@@ -129,38 +133,6 @@ cc.run({
               'คุกกี้ในส่วนวิเคราะห์ จะช่วยให้เว็บไซต์เข้าใจรูปแบบการใช้งานของผู้เข้าชมและจะช่วยปรับปรุงประสบการณ์การใช้งาน โดยการเก็บรวบรวมข้อมูลและรายงานผลการใช้งานของผู้ใช้งาน ',
             toggle: {
               value: 'analytics', // your cookie category
-              enabled: false,
-              readonly: false,
-            },
-            cookie_table: [
-              // list of all expected cookies
-              {
-                col1: '_ga', // match all cookies starting with "_ga"
-                col2: '.thematter.co',
-                col3: '2 years',
-                col4: `The _ga cookie, installed by Google Analytics, calculates visitor, session and campaign data and also keeps track of site usage for the site's analytics report. The cookie stores information anonymously and assigns a randomly generated number to recognize unique visitors.`,
-                is_regex: true,
-              },
-              {
-                col1: '_gid',
-                col2: '.thematter.co',
-                col3: '1 day',
-                col4: `Installed by Google Analytics, _gid cookie stores information on how visitors use a website, while also creating an analytics report of the website's performance. Some of the data that are collected include the number of visitors, their source, and the pages they visit anonymously.`,
-              },
-              {
-                col1: '_ga_0JGXXQLT3H',
-                col2: '.thematter.co',
-                col3: '1 minute',
-                col4: `A variation of the _gat cookie set by Google Analytics and Google Tag Manager to allow website owners to track visitor behaviour and measure site performance. The pattern element in the name contains the unique identity number of the account or website it relates to.`,
-              },
-            ],
-          },
-          {
-            title: 'คุกกี้ในส่วนการตลาด',
-            description:
-              'คุกกี้ในส่วนการตลาด ใช้เพื่อติดตามพฤติกรรมผู้เข้าชมเว็บไซต์เพื่อแสดงโฆษณาที่เหมาะสมสำหรับผู้ใช้งานแต่ละรายและเพื่อเพิ่มประสิทธิผลการโฆษณาสำหรับผู้เผยแพร่และผู้โฆษณาสำหรับบุคคลที่สาม',
-            toggle: {
-              value: 'marketing',
               enabled: false,
               readonly: false,
             },
