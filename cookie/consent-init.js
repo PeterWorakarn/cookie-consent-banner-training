@@ -22,7 +22,7 @@ cc.run({
   // cookie_path: '/',                       // default: root
   // cookie_same_site: 'Lax',                // default: 'Lax'
   // use_rfc_cookie: false,                  // default: false
-  // revision: 0,                            // default: 0
+  revision: 0, // default: 0
 
   gui_options: {
     consent_modal: {
