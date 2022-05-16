@@ -12,276 +12,53 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>Document</title>
+  </head>
+  <body>
+    <div
+      data-service="youtube"
+      data-id="wKQNt8_UWmk"
+      data-autoscale
+    ></div>
 
     <link
       rel="stylesheet"
       type="text/css"
-      href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.0/dist/cookieconsent.css"
+      href="https://cdn.jsdelivr.net/gh/orestbida/iframemanager@v1.0/dist/iframemanager.css"
     />
-
-    <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
-    />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Mitr:wght@300&display=swap"
-      rel="stylesheet"
-    />
-
-    <style>
-      .cc_div {
-        font-family: 'Mitr', sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    <!-- 2. START Reconsent Button -->
-    <button
-      data-cc="c-settings"
-      class="cc-link cc-reconsent"
-      style="
-        position: fixed;
-        left: 8px;
-        bottom: 16px;
-        border-radius: 999px;
-        padding: 4px;
-        display: grid;
-        place-items: center;
-        width: 40px;
-        height: 40px;
-        box-shadow: rgb(204 204 204 / 50%) 0 2px
-          10px 0;
-        border: 1px solid #e8e8e8;
-        background-color: #fff;
-      "
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#0a0b0c"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path
-          d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"
-        ></path>
-        <path d="M8.5 8.5v.01"></path>
-        <path d="M16 15.5v.01"></path>
-        <path d="M12 12v.01"></path>
-        <path d="M11 17v.01"></path>
-        <path d="M7 14v.01"></path>
-      </svg>
-    </button>
-    <!-- 2. END Reconsent Button -->
-
-    <!-- 3. START CookieConsent | cookieconsent.js -->
     <script
+      src="https://cdn.jsdelivr.net/gh/orestbida/iframemanager@v1.0/dist/iframemanager.js"
       defer
-      src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.0/dist/cookieconsent.js"
     ></script>
-    <!-- 3. END CookieConsent | cookieconsent.js -->
-
-    <!-- 4. START CookieConsent Customization  | consent-init.js -->
-    <script defer>
+    <!-- Inline script -->
+    <script>
       window.addEventListener(
         'load',
         function () {
-          // obtain plugin
-          var cc = initCookieConsent();
+          var manager = iframemanager();
 
-          // run plugin with your configuration
-          // example please see: https://orestbida.com/demo-projects/cookieconsent/
-          cc.run({
-            current_lang: 'th',
-            autoclear_cookies: true, // default: false
-            page_scripts: true, // default: false
-            gui_options: {
-              consent_modal: {
-                layout: 'cloud', // box/cloud/bar
-                position: 'bottom center', // bottom/middle/top + left/right/center
-                transition: 'slide', // zoom/slide
-                swap_buttons: false, // enable to invert buttons
-              },
-              settings_modal: {
-                layout: 'box', // box/bar
-                position: 'left', // left/right
-                transition: 'slide', // zoom/slide
-              },
-            },
-
-            onFirstAction: function (
-              user_preferences,
-              cookie,
-            ) {
-              // callback triggered only once
-              typeof window.setJsonCookie ===
-                'function' &&
-                window.setJsonCookie();
-            },
-
-            onAccept: function (cookie) {
-              // START OnAccept
-              if (
-                !cc.allowedCategory('analytics')
-              ) {
-                document.cookie = `_ga_R3CJKR8DKP=; path=/; domain=${
-                  location.hostname
-                }; expires=' + ${new Date(
-                  0,
-                ).toUTCString()}`;
-
-                document.cookie = `_ga=; path=/; domain=${
-                  location.hostname
-                }; expires=' + ${new Date(
-                  0,
-                ).toUTCString()}`;
-
-                document.cookie = `_gat_UA-186935035-1=; path=/; domain=${
-                  location.hostname
-                }; expires=' + ${new Date(
-                  0,
-                ).toUTCString()}`;
-
-                document.cookie = `_gid=; path=/; domain=${
-                  location.hostname
-                }; expires=' + ${new Date(
-                  0,
-                ).toUTCString()}`;
-              }
-              // END OnAccept
-
-              typeof window.setJsonCookie ===
-                'function' &&
-                window.setJsonCookie();
-            },
-
-            onChange: function (
-              cookie,
-              changed_preferences,
-            ) {
-              // ...
-
-              typeof window.setJsonCookie ===
-                'function' &&
-                window.setJsonCookie();
-            },
-
-            languages: {
-              th: {
-                consent_modal: {
-                  title: 'เว็บไซต์นี้ใช้ Cookie',
-                  description:
-                    'เราใช้คุกกี้เพื่อเพิ่มประสิทธิภาพ และประสบการณ์ที่ดีในการใช้งานเว็บไซต์ คุณสามารถเลือกตั้งค่าความยินยอมการใช้คุกกี้ได้ โดยคลิก "การตั้งค่าคุกกี้"  <button type="button" data-cc="c-settings" class="cc-link">การตั้งค่าคุกกี้</button>',
-                  primary_btn: {
-                    text: 'ยอมรับทั้งหมด',
-                    role: 'accept_all', // 'accept_selected' or 'accept_all'
-                  },
-                  secondary_btn: {
-                    text: 'ปฏิเสธทั้งหมด',
-                    role: 'accept_necessary', // 'settings' or 'accept_necessary'
-                  },
+          // Example with youtube embed
+          manager.run({
+            currLang: 'en',
+            services: {
+              youtube: {
+                embedUrl:
+                  'https://www.youtube-nocookie.com/embed/{data-id}',
+                thumbnailUrl:
+                  'https://i3.ytimg.com/vi/{data-id}/hqdefault.jpg',
+                iframe: {
+                  allow:
+                    'accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen;',
                 },
-                settings_modal: {
-                  title:
-                    'การตั้งค่าความเป็นส่วนตัว',
-                  save_settings_btn:
-                    'ยืนยันตัวเลือกของฉัน',
-                  accept_all_btn: 'ยอมรับทั้งหมด',
-                  reject_all_btn: 'ปฏิเสธทั้งหมด',
-                  close_btn_label: 'ปิด',
-                  cookie_table_headers: [
-                    { col1: 'Name' },
-                    { col2: 'Domain' },
-                    { col3: 'Expiration' },
-                    { col4: 'Description' },
-                  ],
-                  blocks: [
-                    {
-                      title:
-                        'คุกกี้ที่ใช้ในเว็บไซต์ 🍪',
-                      description:
-                        'เว็บไซต์นี้มีการใช้คุกกี้เพื่อการปรับปรุงการใช้บริการออนไลน์ของท่าน โดยเราจะใช้คุกกี้เมื่อท่านเข้ามาหน้าเว็บไซต์. คุณสามารถอ่านรายละเอียดเพิ่มเติมได้ที่ <a href="/cookies-policy" target="_blank" rel=”noopener noreferrer” class="cc-link">Cookies Policy</a>.',
-                    },
-                    {
-                      title:
-                        'คุกกี้พื้นฐานที่จำเป็น',
-                      description:
-                        'คุกกี้พื้นฐานที่จำเป็น เพื่อช่วยให้การทำงานหลักของเว็บไซต์ใช้งานได้ รวมถึงการเข้าถึงพื้นที่ที่ปลอดภัยต่าง ๆ ของเว็บไซต์ หากไม่มีคุกกี้นี้เว็บไซต์จะไม่สามารถทำงานได้อย่างเหมาะสม และจะใช้งานได้โดยการตั้งค่าเริ่มต้น โดยไม่สามารถปิดการใช้งานได้',
-                      toggle: {
-                        value: 'necessary',
-                        enabled: true,
-                        readonly: true, // cookie categories with readonly=true are all treated as "necessary cookies"
-                      },
-                      cookie_table: [
-                        // list of all expected cookies
-                        {
-                          col1: 'cc_cookie', // match all cookies starting with "_ga"
-                          col2: 'datayolk.net',
-                          col3: '180 days',
-                          col4: `Set by the Cookie Consent plugin, this cookie is used to record the user consent for the cookies.`,
-                          is_regex: true,
-                        },
-                      ],
-                    },
-                    {
-                      title:
-                        'คุกกี้ในส่วนวิเคราะห์',
-                      description:
-                        'คุกกี้ในส่วนวิเคราะห์ จะช่วยให้เว็บไซต์เข้าใจรูปแบบการใช้งานของผู้เข้าชมและจะช่วยปรับปรุงประสบการณ์การใช้งาน โดยการเก็บรวบรวมข้อมูลและรายงานผลการใช้งานของผู้ใช้งาน ',
-                      toggle: {
-                        value: 'analytics', // your cookie category
-                        enabled: false,
-                        readonly: false,
-                      },
-                      cookie_table: [
-                        // list of all expected cookies
-                        {
-                          col1: '_ga',
-                          col2: 'datayolk.net',
-                          col3: '2 years',
-                          col4: `This cookie is installed by Google Analytics. The cookie is used to calculate visitor, session, campaign data and keep track of site usage for the site’s analytics report. The cookies store information anonymously and assign a randomly generated number to identify unique visitors.`,
-                        },
-                        {
-                          col1: '_gid',
-                          col2: 'datayolk.net',
-                          col3: '1 day',
-                          col4: `This cookie is installed by Google Analytics. The cookie is used to store information of how visitors use a website and helps in creating an analytics report of how the website is doing. The data collected including the number visitors, the source where they have come from, and the pages visited in an anonymous form.`,
-                        },
-                        {
-                          col1: '_gat',
-                          col2: 'datayolk.net',
-                          col3: '10 minutes',
-                          col4: `This cookies is installed by Google Universal Analytics to throttle the request rate to limit the collection of data on high traffic sites.`,
-                        },
-                        {
-                          col1: '_ga_R3CJKR8DKP',
-                          col2: 'datayolk.net',
-                          col3: '1 minute',
-                          col4: `A variation of the _gat cookie set by Google Analytics and Google Tag Manager to allow website owners to track visitor behaviour and measure site performance. The pattern element in the name contains the unique identity number of the account or website it relates to.`,
-                        },
-                        {
-                          col1: '_gat_UA-186935035-1',
-                          col2: 'datayolk.net',
-                          col3: '1 minute',
-                          col4: `A variation of the _gat cookie set by Google Analytics and Google Tag Manager to allow website owners to track visitor behaviour and measure site performance. The pattern element in the name contains the unique identity number of the account or website it relates to.`,
-                        },
-                      ],
-                    },
-                    {
-                      title:
-                        'รายละเอียดเพิ่มเติม',
-                      description: `หากท่านมีปัญหาข้อสงสัยโปรดติดต่อเราที่ <a target="_blank" rel=”noopener noreferrer” class="cc-link" href="/contact">ติดต่อเรา</a>.`,
-                    },
-                  ],
+                cookie: {
+                  name: 'cc_youtube',
+                },
+                languages: {
+                  en: {
+                    notice:
+                      'This content is hosted by a third party. By showing the external content you accept the <a rel="noreferrer" href="https://www.youtube.com/t/terms" title="Terms and conditions" target="_blank">terms and conditions</a> of youtube.com.',
+                    loadBtn: 'Load video',
+                    loadAllBtn: "Don't ask again",
+                  },
                 },
               },
             },
@@ -289,40 +66,5 @@
         },
       );
     </script>
-    <!-- 4. END CookieConsent Customization  | consent-init.js -->
-
-    <!-- 5. START Script Blocking Analytics -->
-    <!-- Google Tag Manager -->
-    <script
-      async
-      type="text/plain"
-      data-cookiecategory="analytics"
-    >
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({
-          'gtm.start': new Date().getTime(),
-          event: 'gtm.js',
-        });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' +
-          i +
-          dl;
-        f.parentNode.insertBefore(j, f);
-      })(
-        window,
-        document,
-        'script',
-        'dataLayer',
-        'GTM-M2XTKRT',
-      );
-    </script>
-    <!-- End Google Tag Manager -->
-
-    <!-- 5. END Script Blocking Analytics -->
   </body>
 </html>
