@@ -206,6 +206,8 @@
                 }; expires=' + ${new Date(
                   0,
                 ).toUTCString()}`;
+
+                cc.eraseCookies(['_ga_0JGXXQLT3H', '_ga']);
               }
               // END OnAccept
 
@@ -221,14 +223,6 @@
               // ...
 
               // START OnChange
-              if (
-                !cc.allowedCategory('analytics')
-              ) {
-                sessionStorage.removeItem(
-                  '_ga_0JGXXQLT3H',
-                );
-                sessionStorage.removeItem('^_ga');
-              }
               // END OnChange
 
               typeof window.setJsonCookie ===
